@@ -156,12 +156,8 @@
                     <?php 
                             if(isset($_POST['submit'])){
                                 $from_location = $_POST['from_location'];
-                                $to_location = $_POST['to_location'];
-                                if(isset($_POST['$stopover_location'])){
-                                    $stopover_location = $_POST['stopover_location'];
-
-                                }
-                                else {$stopover_location ='';}
+                                $to_location = $_POST['to_location'];                              
+                                $stopover_location = $_POST['stopover_location'];         
                                 $date_departure = $_POST['date_departure'];
                                 $date_arrival = $_POST['date_arrival'];
                                 $weight = $_POST['weight'];
