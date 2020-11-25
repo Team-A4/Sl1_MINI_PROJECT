@@ -138,7 +138,7 @@
                         exit();
                     };  
                     
-                    $insert_user_query = "INSERT INTO users(user_username,user_password,user_email,user_gender,user_phone,user_fname,user_lname,user_login ) values ('$username','$password','$email','$gender',$phone_number,'$first_name','$last_name','offline'); ";  
+                    $insert_user_query = "INSERT INTO users(user_username,user_password,user_email,user_gender,user_phone,user_fname,user_lname,user_login) values ('$username','$password','$email','$gender',$phone_number,'$first_name','$last_name','offline'); ";  
                     $run_query = mysqli_query($conn,$insert_user_query);
 
                     if($run_query){
@@ -147,13 +147,9 @@
                     }else{
                         echo "<script>alert('Registration failed ')</script>";
                         echo "<script>window.open('signup.php','_self')</script>";
-            
-                    }    
-                
+                    }         
                 }
-
                 ?>
-
             </div>
         </div>
         
