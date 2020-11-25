@@ -112,7 +112,7 @@
                             <label for="phone_number">Phone Number</label>
                         </div>
                         <div class="form-end">
-                            <p style="padding-left: 10px;">Already a user ? <a href="signin.html">Login</a></p>
+                            <p style="padding-left: 10px;">Already a user ? <a href="signin.php">Login</a></p>
                         </div>
                         <div class="input-field col s12">
                             <button class="btn right grey darken-2" name="submit">Sign Up</button>

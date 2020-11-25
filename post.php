@@ -11,9 +11,6 @@
         $active_user_array = mysqli_fetch_array($run_fetch_active_user_details);
         $active_user_username = $active_user_array['user_username'];
 
-        
-
-    
 ?>
 
 
@@ -112,12 +109,14 @@
                                         <div style="padding-top: 10px;padding-bottom: 20px;">
                                             <div class="input-field" ">
                                                 <i class="material-icons prefix">calendar_today</i>
-                                                <input type="text" id="date" class="datepicker" required name="date_departure">
+                                                <input type="text" id="date" class="datepicker" name="date_departure" required >
+                                                
                                                 <label for="date">Date of departure</label>
                                             </div>
                                             <div class="input-field">
                                                 <i class="material-icons prefix">calendar_today</i>
-                                                <input type="text" id="date" class="datepicker" required name="date_arrival">
+                                                <input type="text" id="date" class="datepicker"  name="date_arrival" required >
+                                    
                                                 <label for="date">Date of Arrival</label>
                                             </div>
                                         </div>                                    
@@ -162,7 +161,6 @@
                                 $date_arrival = $_POST['date_arrival'];
                                 $weight = $_POST['weight'];
                                 $mode = $_POST['mode'];
-
                                 $insert_trip_query = " INSERT into post(from_location,to_location,stopover_location,date_departure,date_arrival,size,mode,user_username) values('$from_location','$to_location','$stopover_location','$date_departure','$date_arrival',$weight,$mode,'$active_user_username') ;";
                                 $run_insert_trip_query = mysqli_query($conn,$insert_trip_query);
                                 if($run_insert_trip_query){
@@ -212,8 +210,13 @@
     $(document).ready(function(){
       $('.sidenav').sidenav();
       $('select').formSelect();
-      $('.datepicker').datepicker();
+      $('.datepicker').pickadate();
     });
+    $('.datepicker').datepicker({ 
+        selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year
+            format: 'yyyy-mm-dd'
+        });
   </script>
     
 </body>
