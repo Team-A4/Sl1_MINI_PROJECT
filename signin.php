@@ -41,7 +41,7 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                    <a href="#"  class="brand-logo grey-text text-darken-4">Crowd Shipping</a>
+                <a href="#" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>
                     <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#" class="grey-text text-darken-4">Post your trip</a></li>
@@ -87,7 +87,7 @@
                             <p style="padding-left: 10px;">Not a member yet ?<a href="signup.html"> Register here</a></p>
                         </div>
                         <div class="input-field col s12">
-                            <button class="btn right grey darken-2" name="submit">Sign Up</button>
+                            <button class="btn right grey darken-2" name="submit">Log In</button>
                         </div>
                 </form>
                     <?php 
@@ -149,7 +149,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container grey-text text-darken-4 center"><p>&copy;crowd shipping 2020</p></div>
+            <div class="container grey-text text-darken-4 center"><p>&copy;Friend Shipper 2020</p></div>
             </div>
         </footer>
 

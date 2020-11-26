@@ -1,4 +1,4 @@
-<?php ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +39,8 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                    <a href="#"  class="brand-logo grey-text text-darken-4">Crowd Shipping</a>
-                    <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
+                <a href="#" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>                    
+                <ul class="right hide-on-med-and-down">
                         <li><a href="#" class="grey-text text-darken-4">Post your trip</a></li>
                         <li><a href="#" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="#" class="grey-text text-darken-4">Register</a></li>
@@ -177,7 +176,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container grey-text text-darken-4 center"><p>&copy;crowd shipping 2020</p></div>
+            <div class="container grey-text text-darken-4 center"><p>&copy;Friend Shipper 2020</p></div>
             </div>
         </footer>
 

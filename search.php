@@ -4,7 +4,12 @@
     if(!isset($_SESSION['user_email'])){
         header('Location:signin.php');
     }
-    else {  
+    else {
+        $active_user_email=$_SESSION['user_email'];
+        $fetch_active_user_details = "SELECT * from users where user_email= '$active_user_email';";
+        $run_fetch_active_user_details= mysqli_query($conn,$fetch_active_user_details);
+        $active_user_array = mysqli_fetch_array($run_fetch_active_user_details);
+        $active_user_username = $active_user_array['user_username'];  
 
 ?>
 
@@ -46,10 +51,10 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                    <a href="#"  class="brand-logo grey-text text-darken-4">Crowd Shipping</a>
-                    <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
+                <a href="#" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>                    
+                <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="/post.php" class="grey-text text-darken-4">Post your trip</a></li>
+                        <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
                         <li><a href="/search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="#" class="grey-text text-darken-4">Logut</a></li>
                     </ul>
@@ -70,7 +75,7 @@
         <div class="container">
             <div class="row">
                 <div class="col l3 hide-on-med-and-down">
-                    <img src="./img/img1.png" alt="" class="responsive-img">
+                    <img src="./img/img1.png"  style="padding-top: 16px; alt="" class="responsive-img">
                 </div>
 
                 <div class="col s12 l9">
@@ -79,7 +84,7 @@
                         <h5>Search for a traveller</h5>
                         <div class="divider yellow darken-2"></div>
                     </div>
-                    <form class="col s12 " method="POST">
+                    <form class="col s12 " method="POST" action='search.php'>
         
                         <div class="row" style="padding-top: 40px;">
                             
@@ -92,8 +97,20 @@
                                 <input type="text" id="to" class="validate" placeholder="City or Country" style="padding-top:10px ;"  name="to_location" required>
                                 <label for="to" style="font-size: 25px;"> <i class="material-icons red-text">location_on</i>TO</label>
                             </div>
+                            <div class="col s12 l7 offset-l1  z-depth-1">
+                            <h6 style="padding-top: 5px;font-size: 20px;color: rgb(243, 174, 25);" >Size of your parcel</h6>
+                                        <div class="input-field" style="padding-left: 1vw;" >
+                                            <select id="weight" name="weight" >
+                                                <option  disabled selected >Select size</option>
+                                                <option value="1">Small (Ex. keys)</option>
+                                                <option value="2">Medium (Ex. Bag, Book, Mobile)</option>
+                                                <option value="3">Large (Ex. Big Box)</option>
+                                                <option value="4">X-Large( Ex. Vehicle)</option>
+                                              </select>
+                                        </div>  
+                            </div>
                             <div class=" col s12 l3 input-field" style="padding-top: 13px;" >
-                                <button class="btn grey darken-2" name="submit" >Search for traveller</button>
+                                <button class="btn grey darken-2" name="submit" >Search</button>
                             </div>
                            
                     </form>
@@ -101,8 +118,16 @@
                 </div>
                     <?php
                         if(isset($_POST['submit'])){
+
+
                             $from_location = $_POST['from_location'];
                             $to_location = $_POST['to_location'];
+                            //$from_date = $_POST['from_date'] ;
+                            //$to_date = $_POST['to_date'] ;
+                            $size =$_POST['weight'];
+                            $cur_date = date("Y-m-d H:i:s");
+                            
+
 
                             $search_location_query=" SELECT * from  post where (from_location='$from_location' and to_location ='$to_location' ) or (from_location='$to_location' and to_location ='$from_location' ) or(stopover_location='$from_location' and to_location ='$to_location' )or(stopover_location='$to_location' and to_location ='$from_location' ) or (from_location='$from_location' and stopover_location ='$to_location' ) or (from_location='$to_location' and stopover_location ='$from_location' ) ;";
                             $run_search_location_query = mysqli_query($conn,$search_location_query);
@@ -110,6 +135,16 @@
                                 $result_arrays = mysqli_fetch_all($run_search_location_query,MYSQLI_ASSOC);
                                 $num_rows = mysqli_num_rows($run_search_location_query);
                                 $index=0;
+                                
+                                //Adding into search history
+                                $search_history= " INSERT INTO search_his(from_location,to_location,from_d,to_d,cur_date,size,username) Values ('$from_location','$to_location','NULL','NULL','$cur_date','$size','$active_user_username') ";
+                                $run_search_history=mysqli_query($conn,$search_history);
+                                if(!($run_search_history)){
+                                    echo "Could not add into search history";
+                                }
+                                //End adding into history
+
+
                                 if($num_rows==0){
                                     echo "No users";
                                 }
@@ -149,7 +184,7 @@
                                     else if($user_mode==4){
                                         $moode= 'plane';
                                     }
-
+                                
 
                          ?>
                         
@@ -197,21 +232,6 @@
                                 
 
 
-                     
-
-
-
-                            
-                         
-
-                
-
-
-
-           
-        
-   
-
         <!--footer-->
 
         <footer class="page-footer grey lighten-2" >
@@ -234,7 +254,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container grey-text text-darken-4 center"><p>&copy;crowd shipping 2020</p></div>
+                <div class="container grey-text text-darken-4 center"><p>&copy;Friend Shipper 2020</p></div>
             </div>
         </footer>
 

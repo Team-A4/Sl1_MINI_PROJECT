@@ -52,7 +52,7 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                    <a href="#"  class="brand-logo grey-text text-darken-4">Crowd Shipping</a>
+                    <a href="#" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>
                     <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#" class="grey-text text-darken-4">Post your trip</a></li>
@@ -85,7 +85,7 @@
                     </div>
                     <form class="col s12 " method="POST">
         
-                        <div class="row z-depth-1" style="margin-top:50px ;padding-top: 40px;border: rgb(226, 217, 217) 1px solid;">
+                        <div class="row z-depth-1" style="margin-top:50px ; padding-top: 40px;border: rgb(226, 217, 217) 1px solid;">
         
                                 <div class="input-field col s12 l3 ">
                                     <input type="text" id="from" class="validate" placeholder="City or Country" style="padding-top:10px ; " required name="from_location">
@@ -107,18 +107,18 @@
                             <div class="col s12 l4 z-depth-1" style="border: rgb(226, 217, 217) 1px solid;">
                                     <h5>Fixed date of journey</h5><div class="divider yellow darken-4"></div>  
                                         <div style="padding-top: 10px;padding-bottom: 20px;">
-                                            <div class="input-field" ">
+                                            <div class="input-field" style="padding-top: 14px" >
                                                 <i class="material-icons prefix">calendar_today</i>
-                                                <input type="text" id="date" class="datepicker" name="date_departure" required >
-                                                
+                                                <input type="text" id="date" class="datepicker"  name="date_departure" required >
                                                 <label for="date">Date of departure</label>
                                             </div>
-                                            <div class="input-field">
+                                            <div class="input-field" style="padding-top: 14px">
                                                 <i class="material-icons prefix">calendar_today</i>
                                                 <input type="text" id="date" class="datepicker"  name="date_arrival" required >
                                     
                                                 <label for="date">Date of Arrival</label>
                                             </div>
+                                            <div style="padding-top:5px"></div>
                                         </div>                                    
                                         
                             </div>
@@ -199,7 +199,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <div class="container grey-text text-darken-4 center"><p>&copy;crowd shipping 2020</p></div>
+            <div class="container grey-text text-darken-4 center"><p>&copy;Friend Shipper 2020</p></div>
             </div>
         </footer>
 
