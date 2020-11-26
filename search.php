@@ -8,9 +8,6 @@
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,17 +49,14 @@
                     <a href="#"  class="brand-logo grey-text text-darken-4">Crowd Shipping</a>
                     <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#" class="grey-text text-darken-4">Post your trip</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Search for traveller</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Register</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Login</a></li>
-
+                        <li><a href="/post.php" class="grey-text text-darken-4">Post your trip</a></li>
+                        <li><a href="/search.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="#" class="grey-text text-darken-4">Logut</a></li>
                     </ul>
                     <ul class="sidenav grey lighten-2 " id="mobile-menu">
-                        <li><a href="#"class="grey-text text-darken-4" >Post your trip</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Search for traveller</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Register</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Login</a></li>
+                        <li><a href="/post.php"class="grey-text text-darken-4" >Post your trip</a></li>
+                        <li><a href="/search.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="#" class="grey-text text-darken-4">Logut</a></li>
                     </ul>
                 </div>
             </nav>
