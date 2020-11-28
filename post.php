@@ -83,14 +83,13 @@
                     <form class="col s12 " method="POST">
         
                         <div class="row z-depth-1" style="margin-top:50px ; padding-top: 40px;border: rgb(226, 217, 217) 1px solid;">
-        
-                                <div class="input-field col s12 l3 ">
-                                    <input type="text" id="from" class="validate" placeholder="City or Country" style="padding-top:10px ; " required name="from_location">
-                                    <label for="from" style="font-size: 25px;"> <i class="material-icons green-text">location_on</i>From</label>
+                                <div class="input-field col s12 l3" style="padding-left:4vw;">
+                                    <input type="text" id="from" class="validate" placeholder="City or Country" style="padding-top:10px; " required name="from_location">
+                                    <label for="from" style="font-size: 25px; padding-left:4vw;"> <i class="material-icons green-text">location_on</i>From</label>
                                 </div>
-                                <div class="input-field col s12 l3 offset-l1 ">
+                                <div class="input-field col s12 l3 offset-l1 " style="padding-left:1vw;">
                                     <input type="text" id="stopover" class="validate" placeholder="City or Country" style="padding-top:10px ;" name="stopover_location">
-                                    <label for="stopover" style="font-size: 25px;"> <i class="material-icons blue-text">location_on</i>Add Stopovers</label>
+                                    <label for="stopover" style="font-size: 25px; padding-left:1vw;"> <i class="material-icons blue-text">location_on</i>Add Stopovers</label>
                                 </div>
                                 <div class="input-field col s12 l3 offset-l1">
                                     <input type="text" id="to" class="validate" placeholder="City or Country" style="padding-top:10px ;" required name="to_location">
