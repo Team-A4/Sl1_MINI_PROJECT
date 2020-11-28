@@ -97,8 +97,8 @@
                             </div>
                            
                         </div> 
-                            <div class=" col s12 l3 input-field" style="padding-top: 13px;" >
-                                <button class="btn grey darken-2 " name="submit" >Search for traveller</button>
+                            <div class=" col s12 l3 input-field" >
+                                <button class="btn grey darken-2 " name="submit" >Search</button>
                             </div>
                            
                     </form>
@@ -107,13 +107,11 @@
                     <?php
                         if(isset($_POST['submit'])){
 
-
                             $from_location = $_POST['from_location'];
                             $to_location = $_POST['to_location'];
                             $cur_date = date("Y-m-d H:i:s");
                             
                             
-
                             $search_location_query=" SELECT * from  post where (from_location='$from_location' and to_location ='$to_location' ) or (from_location='$to_location' and to_location ='$from_location' ) or(stopover_location='$from_location' and to_location ='$to_location' )or(stopover_location='$to_location' and to_location ='$from_location' ) or (from_location='$from_location' and stopover_location ='$to_location' ) or (from_location='$to_location' and stopover_location ='$from_location' ) ;";
                             $run_search_location_query = mysqli_query($conn,$search_location_query);
                             if($run_search_location_query){
@@ -148,6 +146,26 @@
                                     $user_to_location = $result_arrays[$index]['to_location'];
                                     $user_stopover_location = $result_arrays[$index]['stopover_location'];
                                     $user_mode = $result_arrays[$index]['mode'];
+                                    $qq1=" SELECT date_departure from post where from_location='$user_from_location' AND to_location='$user_to_location' AND stopover_location='$user_stopover_location' AND user_username='$user_username_alt'; ";
+                                    $qq2=" SELECT date_arrival from post where from_location='$user_from_location' AND to_location='$user_to_location' AND stopover_location='$user_stopover_location' AND user_username='$user_username_alt'; ";
+                                    $run1=mysqli_query($conn,$qq1);
+                                    $run2=mysqli_query($conn,$qq2);
+                                    
+                                    $dep_date=mysqli_fetch_row($run1);
+                                    $arr_date=mysqli_fetch_row($run2);
+
+                                    $comp_seats="SELECT seats from comp where username='$user_username_alt' AND mode = $user_mode  ";
+                                    $comp_fare ="SELECT fare from comp where username='$user_username_alt' AND mode = $user_mode  ";
+                                    
+                                    $hello=mysqli_query($conn,$comp_seats);
+                                    $hii=mysqli_query($conn,$comp_fare);
+//______________________________________________________________________________________________________
+                                    //Fare 
+                                    $fare=mysqli_fetch_row($hello);
+                                    $seats=mysqli_fetch_row($hii);
+                                    //Seats
+//_____________________________________________________________________________________________________
+
 
                                     if($user_gender == 1){
                                         $gender= 'male';
@@ -183,7 +201,7 @@
                                             </div>
                                         </div>
                                         <div class='card-stacked'>
-                                            <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?></span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
+                                            <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?> <span style="padding-left:4vw">  <?php print_r($dep_date[0]); echo " ----> "; print_r($arr_date[0]);?>    </span>  </span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
                                                 <div class='divider yellow darken-3'></div>
                                             <div class='card-content'>
                                                 <div>
@@ -196,8 +214,12 @@
                                                     <div class='center ' style='font-size: medium;'><?php if($user_stopover_location){ echo"<i class='material-icons blue-text prefix'>location_on</i>";}else echo""; ?><span style='padding-left: 5px;'><?php echo "$user_stopover_location";?></span></div>
                                             </div>
                                             <div class='divider yellow darken-3'> </div>
-                    
-                        
+<!--________________________________________________________________________________________-->  
+                                            <div class='col s12 l3'>
+                                                   <span>
+                                            <div>
+<!--________________________________________________________________________________________-->  
+
                                         </div>
                                         </div>
                                     </div>
