@@ -41,20 +41,16 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                <a href="#" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>
+                <a href="home.php" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>
                     <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#" class="grey-text text-darken-4">Post your trip</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Search for traveller</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Register</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Login</a></li>
+                        <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
+                        <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
 
                     </ul>
                     <ul class="sidenav grey lighten-2 " id="mobile-menu">
-                        <li><a href="#"class="grey-text text-darken-4" >Post your trip</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Search for traveller</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Register</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Login</a></li>
+                        <li><a href="post.php"class="grey-text text-darken-4" >Post your trip</a></li>
+                        <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                     </ul>
                 </div>
             </nav>
@@ -84,7 +80,7 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="form-end">
-                            <p style="padding-left: 10px;">Not a member yet ?<a href="signup.html"> Register here</a></p>
+                            <p style="padding-left: 10px;">Not a member yet ?<a href="signup.php"> Register here</a></p>
                         </div>
                         <div class="input-field col s12">
                             <button class="btn right grey darken-2" name="submit">Log In</button>
@@ -111,7 +107,7 @@
                                     $user_row = mysqli_fetch_array($run_fetching_user_query);
                                     $username_active = $user_row['user_username'];
 
-                                    echo "<script> window.open('home.php?user_username=$username_active' , '_self')</script>";
+                                    echo "<script> window.open('home.php', '_self')</script>";
                                 }
                                 else {
                                     
