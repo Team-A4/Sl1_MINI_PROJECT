@@ -2,6 +2,41 @@
     include('connection.php');
     $user_username =$_GET['user_username'];
     $select_user_query = "SELECT * from users where user_username= '$user_username';";
+    $run_select_user_query = mysqli_query($conn,$select_user_query);
+    if($run_select_user_query){
+        $user_row= mysqli_fetch_array($run_select_user_query);
+        $fname = $user_row['user_fname'];
+        $lname = $user_row ['user_lname'];
+    }
+    $select_profile_query ="SELECT * from profilee where username='$user_username';";
+    $run_select_profile_query = mysqli_query($conn,$select_profile_query);
+    if($run_select_profile_query){
+        $profile_row= mysqli_fetch_array($run_select_profile_query);
+
+        $bio=$profile_row['bio'];
+        $local_adress= $profile_row['loc_dd'];
+        $hometown= $profile_row['hometown'];
+        $location1 = $profile_row['loc1'];
+        $location2 = $profile_row['loc2'];
+        $location3 = $profile_row['loc3'];
+        $location4 = $profile_row['loc4'];
+
+    }
+
+    $select_search_query = "SELECT * from search_his where username='$user_username';";
+    $run_select_search_query =mysqli_query($conn,$select_search_query);
+    if($run_select_search_query){
+        $search_arrays= mysqli_fetch_all($run_select_profile_query);
+        $num_search_arrays=mysqli_num_rows($run_select_profile_query);
+        $from_loc1 = $search_arrays[0]['from_location'];
+        $from_loc2 = $search_arrays[1]['from_location'];
+        $from_loc3 = $search_arrays[2]['from_location'];
+
+        $to_loc1 = $search_arrays[0]['to_location'];
+        $to_loc2 = $search_arrays[1]['to_location'];
+        $to_loc3 = $search_arrays[2]['to_location'];
+
+    }
 ?>
 
 
@@ -76,28 +111,30 @@
                       </div>
                       <div class="card-stacked">
                         <div class="card-content" style="padding-left: vw;">
-                            <div class="card-title" style="font-size: 30px;">Akshad Agrawal</div>
+                            <div class="card-title" style="font-size: 30px;"><?php echo $fname." ".$lname; ?></div>
                             <div class="divider yellow darken-2"></div>
                             <div>
                                 <h6 style="font-size: 20px;"><strong>About: </strong></h6>
-                                <p style="padding-left: 1vw;font-size: 18px;">Student at Pict</p>
+                                <p style="padding-left: 1vw;font-size: 18px;"><?php echo $bio ?></p>
                             </div>
                             
                             <div>
                                 <h6 style="font-size: 20px;"><strong>Hometown</strong></h6>
-                                <p style="padding-left: 1vw;font-size: 18px;"> Pune, India</p>
+                                <p style="padding-left: 1vw;font-size: 18px;"><?php echo $hometown ?></p>
 
                             </div>
                             <div>
                                 <h6 style="font-size: 20px;"><strong>Local Adress: </strong></h6>
-                                <p style="padding-left: 1vw;font-size: 18px;">Pune Institue of computer Technology, Katraj, Pune-411043</p>
+                                <p style="padding-left: 1vw;font-size: 18px;"><?php echo $local_adress ?></p>
                             </div> 
                             <div>
                                 <h6 style="font-size: 20px;"><strong>Places of frequent travel</strong></h6>
                                 <ul style="padding-left: 2vw;font-size: 18px;">
-                                    <li style="list-style:square">Beed</li>
-                                    <li style="list-style:square">Nashik</li>
-                                    <li style="list-style:square">Nanded</li>
+                                    <li style="list-style:square"><?php echo $location1 ?></li>
+                                    <li style="list-style:square"><?php echo $location2 ?></li>
+                                    <li style="list-style:square"><?php echo $location3 ?></li>
+                                    <li style="list-style:square"><?php echo $location4 ?></li>
+
 
 
                                 </ul>
@@ -115,16 +152,16 @@
                                 
                                         <tbody style="font-size: 14px;">
                                           <tr >
-                                            <td>Beed</td>
-                                            <td>Pune</td>
+                                            <td><?php echo $from_loc1 ?></td>
+                                            <td><?php echo $to_loc1 ?></td>
                                           </tr>
                                           <tr>
-                                            <td>Nashik</td>
-                                            <td>Nanded</td>
+                                            <td><?php echo $from_loc2 ?></td>
+                                            <td><?php echo $to_loc2 ?></td>
                                           </tr>
                                           <tr>
-                                            <td>Jalna</td>
-                                            <td>Pune</td>
+                                            <td><?php echo $from_loc3 ?></td>
+                                            <td><?php echo $to_loc3 ?></td>
                                           </tr>
                                         </tbody>
                                       </table>
