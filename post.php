@@ -115,7 +115,6 @@
                                             <div class="input-field" style="padding-top: 14px">
                                                 <i class="material-icons prefix">calendar_today</i>
                                                 <input type="text" id="date" class="datepicker"  name="date_arrival" required >
-                                    
                                                 <label for="date">Date of Arrival</label>
                                             </div>
                                             <div style="padding-top:5px"></div>
@@ -148,12 +147,13 @@
 
                         </div>
                         <div class="input-field right">
-                            <button class="btn grey lighen-1" name="submit">Post your trip</button>
+                            <button class="btn grey lighen-1" style="border 2px solid black" name="submit">Post your trip</button>
                         </div>
                            
                     </form>                
                     <?php 
-                            if(isset($_POST['submit'])){
+                            if(isset($_POST['submit']))
+                            {
                                 $from_location = $_POST['from_location'];
                                 $to_location = $_POST['to_location'];                              
                                 $stopover_location = $_POST['stopover_location'];         
@@ -161,13 +161,34 @@
                                 $date_arrival = $_POST['date_arrival'];
                                 $weight = $_POST['weight'];
                                 $mode = $_POST['mode'];
-                                $insert_trip_query = " INSERT into post(from_location,to_location,stopover_location,date_departure,date_arrival,size,mode,user_username) values('$from_location','$to_location','$stopover_location','$date_departure','$date_arrival',$weight,$mode,'$active_user_username') ;";
-                                $run_insert_trip_query = mysqli_query($conn,$insert_trip_query);
-                                if($run_insert_trip_query){
-                                    echo " <script>alert('Trip posted succesfully!') </script>";
-                                }
-                                // echo "<script> window.open('home.php', '_self')</script>";
+                                
+                                if($date_departure > $date_arrival )
+                                {
+                                    echo "<script>alert('Date of arrival must be older than Departure') </script>";
+                                }else
+                                {
+                                    //Serarch for similar trip is posted already
 
+                                    $search_qq="SELECT * from post where from_location='$from_location' AND to_location='$to_location' AND '$date_departure'='date_departure' AND '$date_arrival'='date_arrival' AND '$mode'='mode' ; " ;    
+                                    $run_search_query = mysqli_query($conn,$search_qq); 
+                                    if($run_search_query){
+                                    $num_rows = mysqli_num_rows($run_search_query);
+                                    
+                                    if($num_rows)
+                                    {
+                                        $insert_trip_query = " INSERT into post(from_location,to_location,stopover_location,date_departure,date_arrival,size,mode,user_username) values('$from_location','$to_location','$stopover_location','$date_departure','$date_arrival',$weight,$mode,'$active_user_username') ;";
+                                        $run_insert_trip_query = mysqli_query($conn,$insert_trip_query);
+                                        if($run_insert_trip_query)
+                                        {
+                                            echo " <script>alert('Trip posted succesfully!') </script>";
+                                        }
+                                    }else{
+                                        echo " <script>alert('Found Similar Journey!!!')</script>";
+                                    }
+
+                                    }else echo "HII ";
+                                     // echo "<script> window.open('home.php', '_self')</script>";
+                                }
                             }
                         ?>
                  
