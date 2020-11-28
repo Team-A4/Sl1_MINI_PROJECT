@@ -168,13 +168,12 @@
                                 }else
                                 {
                                     //Serarch for similar trip is posted already
-
-                                    $search_qq="SELECT * from post where from_location='$from_location' AND to_location='$to_location' AND '$date_departure'='date_departure' AND '$date_arrival'='date_arrival' AND '$mode'='mode' ; " ;    
+                                    $search_qq="SELECT * from post where (from_location='$from_location' AND to_location='$to_location' AND date_departure = '$date_departure' AND date_arrival='$date_arrival' AND mode='$mode' ); " ;    
                                     $run_search_query = mysqli_query($conn,$search_qq); 
                                     if($run_search_query){
                                     $num_rows = mysqli_num_rows($run_search_query);
-                                    
-                                    if($num_rows)
+
+                                    if($num_rows==0)
                                     {
                                         $insert_trip_query = " INSERT into post(from_location,to_location,stopover_location,date_departure,date_arrival,size,mode,user_username) values('$from_location','$to_location','$stopover_location','$date_departure','$date_arrival',$weight,$mode,'$active_user_username') ;";
                                         $run_insert_trip_query = mysqli_query($conn,$insert_trip_query);
