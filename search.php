@@ -56,11 +56,15 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
+
                         <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                     <ul class="sidenav grey lighten-2 " id="mobile-menu">
                         <li><a href="post.php"class="grey-text text-darken-4" >Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
+
                         <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                 </div>
@@ -161,8 +165,8 @@
                                     $hii=mysqli_query($conn,$comp_fare);
 //______________________________________________________________________________________________________
                                     //Fare 
-                                    $fare=mysqli_fetch_row($hello);
-                                    $seats=mysqli_fetch_row($hii);
+                                    $fare=mysqli_fetch_row($hii);
+                                    $seats=mysqli_fetch_row($hello);
                                     //Seats
 //_____________________________________________________________________________________________________
 
@@ -196,12 +200,12 @@
                                     <div class='col s12 '>
                                         <div class='card horizontal grey lighten-4' style='border: rgb(255, 196, 0) 2px solid;'>
                                         <div class='card-image'>
-                                            <img src='./img/img_user.jpg' class='responsive-img' style='height: 220px;width: 200px;'>
+                                            <img src='./img/img_user.jpg' class='responsive-img' style='height: 180px;width: 180px;'>
                                             <div style="padding-left:35px; padding-top:10px ; padding-bottom:10px"><form method="POST" action="view_profile.php?user_username=<?php echo $user_username ?>"><button class='btn blue darken' style="padding-left:10px; " name="submit_profile">View Profile</button></form>
                                             </div>
                                         </div>
                                         <div class='card-stacked'>
-                                            <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?> <span style="padding-left:4vw">  <?php print_r($dep_date[0]); echo " ----> "; print_r($arr_date[0]);?>    </span>  </span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
+                                            <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?> <span style="padding-left:17vw">  <?php print_r($dep_date[0]); echo " ----> "; print_r($arr_date[0]);?>    </span>  </span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
                                                 <div class='divider yellow darken-3'></div>
                                             <div class='card-content'>
                                                 <div>
@@ -215,9 +219,7 @@
                                             </div>
                                             <div class='divider yellow darken-3'> </div>
 <!--________________________________________________________________________________________-->  
-                                            <div class='col s12 l3'>
-                                                   <span>
-                                            <div>
+                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 30vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>
 <!--________________________________________________________________________________________-->  
 
                                         </div>
