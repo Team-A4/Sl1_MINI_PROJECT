@@ -181,7 +181,7 @@
                                     else if($user_mode==4){
                                         $moode= 'plane';
                                     }
-                                
+                            
 
                          ?>
                         
@@ -191,6 +191,8 @@
                                         <div class='card horizontal grey lighten-4' style='border: rgb(255, 196, 0) 2px solid;'>
                                         <div class='card-image'>
                                             <img src='./img/img_user.jpg' class='responsive-img' style='height: 220px;width: 200px;'>
+                                            <div style="padding-left:35px; padding-top:10px ; padding-bottom:10px"><button class='btn blue darken' style="padding-left:10px;">View Profile</button>
+                                            </div>
                                         </div>
                                         <div class='card-stacked'>
                                             <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?></span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
@@ -199,14 +201,14 @@
                                                 <div>
                                                     <i class='material-icons green-text prefix' style='padding-left: 2vw;'>location_on</i><span style='padding-left: 5px;'><?php echo "$user_from_location";?></span>
                                                     <span>
-                                                    
+                                                
                                                     </span>
                                                     <span class='right' style='padding-right: 3vw;'><i class='material-icons red-text prefix'>location_on</i><span style='padding-left: 5px;'><?php echo "$user_to_location";?></span></span>
                                                 </div>
                                                     <div class='center ' style='font-size: medium;'><?php if($user_stopover_location){ echo"<i class='material-icons blue-text prefix'>location_on</i>";}else echo""; ?><span style='padding-left: 5px;'><?php echo "$user_stopover_location";?></span></div>
                                             </div>
                                             <div class='divider yellow darken-3'> </div>
-                                            <div style='padding-top: 8px;padding-right: 3vw;padding-left: 3vw;'><button class='btn yellow darken-3 right'>get DEtails</button><button class='btn blue darken '>View Profile</button></div>
+                    
                         
                                         </div>
                                         </div>

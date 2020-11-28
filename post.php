@@ -201,7 +201,7 @@
                                         $run_insert_trip_query = mysqli_query($conn,$insert_trip_query);
                                         if($run_insert_trip_query)
                                         {
-                                           if($seats > 0 || $fare > 0)      //Companion
+                                           if($seats > 0 )      //Companion
                                            {
                                                $insert_comp_query= "INSERT into comp values ('$active_user_username',$seats,$fare,$mode);";
                                                $runn=mysqli_query($conn,$insert_comp_query);
