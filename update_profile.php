@@ -112,9 +112,8 @@
                             <i class="fab fa-twitter prefix blue-text" ></i>
                             <input type="text" id="Twitter" class="validate" name="twitter_id" >
                             <label for="Twitter">Add Twitter ID</label>
+                            <br>
                         </div>
-                        <br><br>
-                        <br>
                         <div class="col s12">
                             <i class="material-icons blue prefix" style="border-radius: 20px;height: 25px;width: 25px;margin-top: 10px;">add</i><span style="padding-left: 10px;font-size: 20px;">Add frequent travel locations</span><br>
                         </div>
