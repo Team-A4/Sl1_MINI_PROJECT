@@ -93,6 +93,11 @@
                             <label for="textarea" >Update your Bio..</label>
                           </div>
                           <div class="input-field col s12">
+                            <textarea id="hometown" class="materialize-textarea" name="hometown"></textarea>
+                            <label for="hometown">Add Hometown</label>
+                          </div>
+
+                          <div class="input-field col s12">
                             <textarea id="address" class="materialize-textarea" name="loc_add"></textarea>
                             <label for="address">Add Local Adress</label>
                           </div>
@@ -107,12 +112,7 @@
                             <input type="text" id="facebook" class="validate"  name="fb_id" >
                             <label for="facebook">Add Facebook ID</label>
                         </div>
-                        <div class="input-field col s12 ">
-                            <i class="fab fa-twitter prefix blue-text" ></i>
-                            <input type="text" id="Twitter" class="validate" name="twitter_id" >
-                            <label for="Twitter">Add Twitter ID</label>
-                            <br>
-                        </div>
+                       
                         <div class="col s12">
                             <i class="material-icons blue prefix" style="border-radius: 20px;height: 25px;width: 25px;margin-top: 10px;">add</i><span style="padding-left: 10px;font-size: 20px;">Add frequent travel locations</span><br>
                         </div>
@@ -155,18 +155,16 @@
                     $loc2= htmlentities(mysqli_real_escape_string($conn,$_POST['loc2']));
                     $loc3= htmlentities(mysqli_real_escape_string($conn,$_POST['loc3']));
                     $loc4= htmlentities(mysqli_real_escape_string($conn,$_POST['loc4']));
-                    $update_query= "UPDATE profilee SET  bio= '$bio', loc_add= '$loc_add' , insta_id='$insta_id', fb_id='$fb_id' ,loc1='$loc1' ,loc2='$loc2',loc3='$loc3',loc4='$loc4' WHERE username='$active_user_username'";
+                    $hometown = htmlentities((mysqli_real_escape_string($conn,$_POST['hometown'])));
+                    $update_query= "UPDATE profilee SET  bio= '$bio', loc_dd= '$loc_add' , insta_id='$insta_id', fb_id='$fb_id' ,loc1='$loc1' ,loc2='$loc2',loc3='$loc3',loc4='$loc4', hometown= '$hometown' WHERE username='$active_user_username'";
                     $kk=mysqli_query($conn,$update_query);
                     
                     if($kk)
                     {
                         echo "<script>alert('User details updated succcessfully !!') </script>";
-                    }else{
-                        echo "<script>alert('Error in update')</script>";
-                    } 
+                        header('Location:home.php');
+                    }
 
-                }else{
-                    echo "<script>alert('Error in update22')</script>";
                 }
 
                 ?>
