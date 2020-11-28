@@ -26,15 +26,17 @@
     $select_search_query = "SELECT * from search_his where username='$user_username';";
     $run_select_search_query =mysqli_query($conn,$select_search_query);
     if($run_select_search_query){
-        $search_arrays= mysqli_fetch_all($run_select_profile_query);
+        $search_arrays= mysqli_fetch_all($run_select_search_query);
         $num_search_arrays=mysqli_num_rows($run_select_profile_query);
-        $from_loc1 = $search_arrays[0]['from_location'];
-        $from_loc2 = $search_arrays[1]['from_location'];
-        $from_loc3 = $search_arrays[2]['from_location'];
+        $from_loc1 = $search_arrays[0][0];
+        $from_loc2 = $search_arrays[1][0];
+        $from_loc3 = $search_arrays[2][0];
 
-        $to_loc1 = $search_arrays[0]['to_location'];
-        $to_loc2 = $search_arrays[1]['to_location'];
-        $to_loc3 = $search_arrays[2]['to_location'];
+        $to_loc1 = $search_arrays[0][1];
+        $to_loc2 = $search_arrays[1][1];
+        $to_loc3 = $search_arrays[2][1];
+
+        
 
     }
 ?>

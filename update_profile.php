@@ -156,7 +156,7 @@
                     $loc2= htmlentities(mysqli_real_escape_string($conn,$_POST['loc2']));
                     $loc3= htmlentities(mysqli_real_escape_string($conn,$_POST['loc3']));
                     $loc4= htmlentities(mysqli_real_escape_string($conn,$_POST['loc4']));
-                    $update_query= "UPDATE profilee SET  bio= '$bio', 'loc_add'= '$loc_add' , 'insta_id'='$insta_id', 'fb_id'='$fb_id' ,'loc1'='$loc1' ,'loc2'='$loc2','loc3'='$loc3','loc4'='$loc4' WHERE username='$active_user_username'";
+                    $update_query= "UPDATE profilee SET  bio= '$bio', loc_add= '$loc_add' , insta_id='$insta_id', fb_id='$fb_id' ,loc1='$loc1' ,loc2='$loc2',loc3='$loc3',loc4='$loc4' WHERE username='$active_user_username'";
                     $kk=mysqli_query($conn,$update_query);
                     
                     if($kk)
