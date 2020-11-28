@@ -144,7 +144,26 @@
                                               </select>
                                         </div>                                    
                             </div>
-
+                        </div>
+                        <div class="row " style="padding-top: 30px;">
+                        <div class="col s12 l12  z-depth-1" style="border: rgb(226, 217, 217) 1px solid;">
+                                <h5>Do You Want a Companion For Journey?</h5><div class="divider yellow darken-4"></div>
+                                        <div class="input-field col s12 l5" style="padding-left: 1vw;" >
+                                        <h6 style="padding-top: 5px;font-size: 20px;color: rgb(243, 174, 25);" >Number Of seats Available</h6>
+                                            <select id="seats" name="seats" >
+                                                <option selected value="0">Select seats</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">more than 4</option>
+                                              </select>
+                                        </div>  
+                                        <div class="input-field col s12 l5 offset-l1">
+                                        <h6 style="padding-top: 5px;font-size: 20px;color: rgb(243, 174, 25);" >Fare</h6>
+                                            <input type="number" id="fare" class="validate" placeholder="Fare per head" style="color:black " name="fare">
+                                        </div>                                    
+                            </div> 
                         </div>
                         <div class="input-field right">
                             <button class="btn grey lighen-1" style="border 2px solid black" name="submit">Post your trip</button>
@@ -153,7 +172,8 @@
                     </form>                
                     <?php 
                             if(isset($_POST['submit']))
-                            {
+                            {   
+                                $fare=0;
                                 $from_location = $_POST['from_location'];
                                 $to_location = $_POST['to_location'];                              
                                 $stopover_location = $_POST['stopover_location'];         
@@ -161,11 +181,13 @@
                                 $date_arrival = $_POST['date_arrival'];
                                 $weight = $_POST['weight'];
                                 $mode = $_POST['mode'];
-                                
+                                $seats= $_POST['seats'];
+                                $fare = $_POST['fare'];
                                 if($date_departure > $date_arrival )
                                 {
                                     echo "<script>alert('Date of arrival must be older than Departure') </script>";
-                                }else
+                                }
+                                else
                                 {
                                     //Serarch for similar trip is posted already
                                     $search_qq="SELECT * from post where (from_location='$from_location' AND to_location='$to_location' AND date_departure = '$date_departure' AND date_arrival='$date_arrival' AND mode='$mode' ); " ;    
@@ -179,7 +201,19 @@
                                         $run_insert_trip_query = mysqli_query($conn,$insert_trip_query);
                                         if($run_insert_trip_query)
                                         {
-                                            echo " <script>alert('Trip posted succesfully!') </script>";
+                                           if($seats > 0 || $fare > 0)      //Companion
+                                           {
+                                               $insert_comp_query= "INSERT into comp values ('$active_user_username',$seats,$fare,$mode);";
+                                               $runn=mysqli_query($conn,$insert_comp_query);
+                                               if($runn)
+                                               {
+                                                    echo " <script>alert('Trip posted succesfully!') </script>";
+                                               }
+                                           }
+                                           else
+                                           {
+                                                    echo " <script>alert('Trip posted succesfully!') </script>";
+                                           }
                                         }
                                     }else{
                                         echo " <script>alert('Found Similar Journey!!!')</script>";
