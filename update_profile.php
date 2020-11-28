@@ -83,10 +83,10 @@
     
                     <div class="row">
                         <div class="col s6 ">
-                            <img src="../img/img_user.jpg" style="border: 1px black solid; height: 200px;width: 200px;"  alt="">
+                            <img src="img/img_user.jpg" style="border: 1px black solid; height: 200px;width: 200px;"  alt="">
                         </div>
-                        <div class="input-field col s6 pull-s2" style="padding-top: 160px;" >
-                            <input type="file" id="user_img" name="image" class="validate" accept="image/*" >
+                        <div class="input-field col s6 pull-s2" style="padding-top: 160px;padding-left: 160px;" >
+                            <input type="file" id="image" name="image" accept="image/*" >
                         </div>
 
                         <div class="input-field col s12">
@@ -113,25 +113,27 @@
                             <input type="text" id="Twitter" class="validate" name="twitter_id" >
                             <label for="Twitter">Add Twitter ID</label>
                         </div>
-
+                        <br><br>
+                        <br>
                         <div class="col s12">
                             <i class="material-icons blue prefix" style="border-radius: 20px;height: 25px;width: 25px;margin-top: 10px;">add</i><span style="padding-left: 10px;font-size: 20px;">Add frequent travel locations</span><br>
                         </div>
-                        <div class="input-field col s4">
+                        <div class="input-field col s5">
                             <i class="material-icons prefix">location_on</i>
                             <input type="text" id="location1" name="loc1">
                             <label for="location1">Location 1</label>  
                         </div>
-                        <div class="input-field col s4">
+                        <div class="input-field col s5">
                             <i class="material-icons prefix">location_on</i>
                             <input type="text" id="location2" name="loc2">
                             <label for="location2">Location 2</label> 
                         </div> 
-                        </div><div class="input-field col s4">
+                        <div class="input-field col s5">
                             <i class="material-icons prefix">location_on</i>
                             <input type="text" id="location3" name="loc3">
                             <label for="location3">Location 3</label>  
-                        </div><div class="input-field col s4">
+                        </div>
+                        <div class="input-field col s5">
                             <i class="material-icons prefix">location_on</i>
                             <input type="text" id="location4" name="loc4">
                             <label for="location4">Location 4</label>  
@@ -140,6 +142,7 @@
                             <button class="btn right grey darken-2" type='submit' name="submit">Update</button>
                         </div>
                 </form>
+
 
                 <?php 
 
@@ -154,21 +157,18 @@
                     $loc2= htmlentities(mysqli_real_escape_string($conn,$_POST['loc2']));
                     $loc3= htmlentities(mysqli_real_escape_string($conn,$_POST['loc3']));
                     $loc4= htmlentities(mysqli_real_escape_string($conn,$_POST['loc4']));
-                    //echo "$active_user_username";
                     $insert_query= "INSERT into profilee values ('$active_user_username','$bio','$loc_add','$insta_id','$fb_id','$twitter_id','$loc1','$loc2','$loc3','$loc4');";
                     $kk=mysqli_query($conn,$insert_query);
-                    echo "$kk";
                     if($kk)
                     {
                         echo "<script>alert('User details updated succcessfully !!') </script>";
                     }else{
                         echo "<script>alert('Error in update')</script>";
                     } 
-                    
+
                 }else{
                     echo "<script>alert('Error in update22')</script>";
                 }
-
 
                 ?>
 
@@ -178,7 +178,6 @@
     </main>
 
         <!--footer-->
-
         <footer class="page-footer grey lighten-2" >
             <div class="container">
                 <div class="row">
