@@ -139,6 +139,8 @@
                     $run_query = mysqli_query($conn,$insert_user_query);
 
                     if($run_query){
+                        $update_table_query="INSERT into profilee values('$username','-','-','-','-','-','-','-','-','-','-');";
+                        $run_update_query = mysqli_query($conn,$update_table_query);
                         echo "<script>alert('Congratulations $first_name,your account is created! Please Login to continue')</script>";
                         echo "<script>window.open('signin.php','_self')</script>";
                     }else{
