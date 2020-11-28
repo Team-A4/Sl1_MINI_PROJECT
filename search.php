@@ -51,17 +51,17 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                <a href="#" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>                    
+                <a href="home.php" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>                    
                 <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
-                        <li><a href="/search.php" class="grey-text text-darken-4">Search for traveller</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Logout</a></li>
+                        <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                     <ul class="sidenav grey lighten-2 " id="mobile-menu">
-                        <li><a href="/post.php"class="grey-text text-darken-4" >Post your trip</a></li>
-                        <li><a href="/search.php" class="grey-text text-darken-4">Search for traveller</a></li>
-                        <li><a href="#" class="grey-text text-darken-4">Logout</a></li>
+                        <li><a href="post.php"class="grey-text text-darken-4" >Post your trip</a></li>
+                        <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                 </div>
             </nav>
@@ -75,12 +75,12 @@
         <div class="container">
             <div class="row">
                 <div class="col l3 hide-on-med-and-down">
-                    <img src="./img/img1.png"  style="padding-top: 16px; alt="" class="responsive-img">
+                    <img src="./img/img1.png"  style="padding-top: 16px; " class="responsive-img">
                 </div>
 
                 <div class="col s12 l9">
 
-                    <div class="form-start" style="padding-left: 10px;"">
+                    <div class="form-start" style="padding-left: 10px;">
                         <h5>Search for a traveller</h5>
                         <div class="divider yellow darken-2"></div>
                     </div>
@@ -95,21 +95,10 @@
                                 <input type="text" id="to" class="validate" placeholder="City or Country" style="padding-top:10px ;"  name="to_location" required>
                                 <label for="to" style="font-size: 25px;"> <i class="material-icons red-text">location_on</i>TO</label>
                             </div>
-                            <div class="col s12 l8  z-depth-1">
-                            <h6 style="padding-top: 5px;font-size: 20px;color: rgb(243, 174, 25);" >Size of your parcel</h6>
-                                        <div class="input-field" style="padding-left: 1vw;" >
-                                            <select id="weight" name="weight" >
-                                                <option  disabled selected >Select size</option>
-                                                <option value="1">Small (Ex. keys)</option>
-                                                <option value="2">Medium (Ex. Bag, Book, Mobile)</option>
-                                                <option value="3">Large (Ex. Big Box)</option>
-                                                <option value="4">X-Large( Ex. Vehicle)</option>
-                                              </select>
-                                        </div>  
-                            </div>
+                           
                         </div> 
                             <div class=" col s12 l3 input-field" style="padding-top: 13px;" >
-                                <button class="btn grey darken-2" name="submit" >Search</button>
+                                <button class="btn grey darken-2 " name="submit" >Search for traveller</button>
                             </div>
                            
                     </form>
@@ -121,7 +110,6 @@
 
                             $from_location = $_POST['from_location'];
                             $to_location = $_POST['to_location'];
-                            $size =$_POST['weight'];
                             $cur_date = date("Y-m-d H:i:s");
                             
                             
@@ -134,7 +122,7 @@
                                 $index=0;
                                 
                                 //Adding into search history
-                                $search_history= " INSERT INTO search_his(from_location,to_location,from_d,to_d,cur_date,size,username) Values ('$from_location','$to_location','NULL','NULL','$cur_date','$size','$active_user_username') ";
+                                $search_history= " INSERT INTO search_his(from_location,to_location,cur_date,username) Values ('$from_location','$to_location','$cur_date','$active_user_username') ";
                                 $run_search_history=mysqli_query($conn,$search_history);
                                 if(!($run_search_history)){
                                     echo "Could not add into search history";
@@ -191,7 +179,7 @@
                                         <div class='card horizontal grey lighten-4' style='border: rgb(255, 196, 0) 2px solid;'>
                                         <div class='card-image'>
                                             <img src='./img/img_user.jpg' class='responsive-img' style='height: 220px;width: 200px;'>
-                                            <div style="padding-left:35px; padding-top:10px ; padding-bottom:10px"><button class='btn blue darken' style="padding-left:10px;">View Profile</button>
+                                            <div style="padding-left:35px; padding-top:10px ; padding-bottom:10px"><form method="POST" action="view_profile.php?user_username=<?php echo $user_username ?>"><button class='btn blue darken' style="padding-left:10px; " name="submit_profile">View Profile</button></form>
                                             </div>
                                         </div>
                                         <div class='card-stacked'>
