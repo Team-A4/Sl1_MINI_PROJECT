@@ -162,7 +162,7 @@
                     if($kk)
                     {
                         echo "<script>alert('User details updated succcessfully !!') </script>";
-                        header('Location:home.php');
+                        echo "<script>window.open('home.php','_self')</script>";
                     }
 
                 }
