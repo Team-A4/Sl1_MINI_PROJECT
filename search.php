@@ -51,7 +51,7 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                <a href="home.php" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>                    
+                <a href="home.php" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Parcel Mate</a>                    
                 <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
