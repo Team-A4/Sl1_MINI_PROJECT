@@ -219,7 +219,7 @@
                                             </div>
                                             <div class='divider yellow darken-3'> </div>
 <!--________________________________________________________________________________________-->  
-                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 30vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>
+                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 25vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>
 <!--________________________________________________________________________________________-->  
 
                                         </div>
