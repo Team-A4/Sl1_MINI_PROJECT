@@ -39,7 +39,7 @@
         <div class="navbar">
             <nav class="navbar-wrapper grey lighten-2">
                 <div class="container">
-                <a href="home.php" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Friend Shipper</a>                    
+                <a href="home.php" class="brand-logo grey-text text-darken-4" style="font-size: 27px">Parcel Mate</a>                    
                 <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
 
                 <ul class="right hide-on-med-and-down">
@@ -62,7 +62,7 @@
     <main style="padding-top: 4vw;">
         <div class="container">
             <div class="row">
-                <div class="form-start" style="padding-left: 10px;"">
+                <div class="form-start" style="padding-left: 10px;">
                     <h5>Not a member yet ? Register here !</h5>
                 </div>
                 <form class="col s12 l6" method="POST">
@@ -115,6 +115,7 @@
                             <button class="btn right grey darken-2" name="submit">Sign Up</button>
                         </div>  
                 </form>
+               
 
                 <?php 
 
@@ -150,6 +151,10 @@
                 }
                 ?>
             </div>
+            <div class="col l6 right">
+                <img src="./logo.png">
+                </div>
+              
         </div>
         
     </main>
