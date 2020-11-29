@@ -64,7 +64,6 @@
                         <li><a href="post.php"class="grey-text text-darken-4" >Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
-
                         <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                 </div>
@@ -114,7 +113,6 @@
                             $from_location = $_POST['from_location'];
                             $to_location = $_POST['to_location'];
                             $cur_date = date("Y-m-d H:i:s");
-                            
                             
                             $search_location_query=" SELECT * from  post where (from_location='$from_location' and to_location ='$to_location' ) or (from_location='$to_location' and to_location ='$from_location' ) or(stopover_location='$from_location' and to_location ='$to_location' )or(stopover_location='$to_location' and to_location ='$from_location' ) or (from_location='$from_location' and stopover_location ='$to_location' ) or (from_location='$to_location' and stopover_location ='$from_location' ) ;";
                             $run_search_location_query = mysqli_query($conn,$search_location_query);
@@ -218,9 +216,7 @@
                                                     <div class='center ' style='font-size: medium;'><?php if($user_stopover_location){ echo"<i class='material-icons blue-text prefix'>location_on</i>";}else echo""; ?><span style='padding-left: 5px;'><?php echo "$user_stopover_location";?></span></div>
                                             </div>
                                             <div class='divider yellow darken-3'> </div>
-<!--________________________________________________________________________________________-->  
-                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 15vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>
-<!--________________________________________________________________________________________-->  
+                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 15vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>  
 
                                         </div>
                                         </div>

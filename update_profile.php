@@ -89,27 +89,27 @@
                         </div>
 
                         <div class="input-field col s12">
-                            <textarea id="textarea" class="materialize-textarea" name="bio"></textarea>
+                            <textarea id="textarea" class="materialize-textarea" name="bio" required></textarea>
                             <label for="textarea" >Update your Bio..</label>
                           </div>
                           <div class="input-field col s12">
-                            <textarea id="hometown" class="materialize-textarea" name="hometown"></textarea>
+                            <textarea id="hometown" class="materialize-textarea" name="hometown" required></textarea>
                             <label for="hometown">Add Hometown</label>
                           </div>
 
                           <div class="input-field col s12">
-                            <textarea id="address" class="materialize-textarea" name="loc_add"></textarea>
+                            <textarea id="address" class="materialize-textarea" name="loc_add" required></textarea>
                             <label for="address">Add Local Adress</label>
                           </div>
 
                         <div class="input-field col s12  ">
                             <i class="fab fa-instagram prefix pink-text" ></i>
-                            <input type="text" id="instagram" class="validate" name="insta_id">
+                            <input type="text" id="instagram" class="validate" name="insta_id" required>
                             <label for="instagram">Add Instagram ID</label>
                         </div>
                         <div class="input-field col s12 ">
                             <i class="fab fa-facebook prefix blue-text text-darken-3" ></i>
-                            <input type="text" id="facebook" class="validate"  name="fb_id" >
+                            <input type="text" id="facebook" class="validate"  name="fb_id" required>
                             <label for="facebook">Add Facebook ID</label>
                         </div>
                        
@@ -118,12 +118,12 @@
                         </div>
                         <div class="input-field col s5">
                             <i class="material-icons prefix">location_on</i>
-                            <input type="text" id="location1" name="loc1">
+                            <input type="text" id="location1" name="loc1" required>
                             <label for="location1">Location 1</label>  
                         </div>
                         <div class="input-field col s5">
                             <i class="material-icons prefix">location_on</i>
-                            <input type="text" id="location2" name="loc2">
+                            <input type="text" id="location2" name="loc2" required>
                             <label for="location2">Location 2</label> 
                         </div> 
                         <div class="input-field col s5">
@@ -156,7 +156,8 @@
                     $loc3= htmlentities(mysqli_real_escape_string($conn,$_POST['loc3']));
                     $loc4= htmlentities(mysqli_real_escape_string($conn,$_POST['loc4']));
                     $hometown = htmlentities((mysqli_real_escape_string($conn,$_POST['hometown'])));
-                    $update_query= "UPDATE profilee SET  bio= '$bio', loc_dd= '$loc_add' , insta_id='$insta_id', fb_id='$fb_id' ,loc1='$loc1' ,loc2='$loc2',loc3='$loc3',loc4='$loc4', hometown= '$hometown' WHERE username='$active_user_username'";
+                    echo "$active_user_username";
+                    $update_query= "UPDATE profilee SET  bio= '$bio', loc_dd= '$loc_add' , insta_id='$insta_id', fb_id='$fb_id' ,loc1='$loc1' ,loc2='$loc2',loc3='$loc3',loc4='$loc4', hometown= '$hometown' WHERE username='$active_user_username';";
                     $kk=mysqli_query($conn,$update_query);
                     
                     if($kk)

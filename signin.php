@@ -112,7 +112,6 @@
                                 else {
                                     
                                     echo "<script>alert('Check Email and Password')</script>";
-                        
                                 }
                         }
                     
