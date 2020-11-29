@@ -205,7 +205,7 @@
                                             </div>
                                         </div>
                                         <div class='card-stacked'>
-                                            <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?> <span style="padding-left:17vw">  <?php print_r($dep_date[0]); echo " ----> "; print_r($arr_date[0]);?>    </span>  </span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
+                                            <span class='card-title' style='padding-left: 2vw;padding-top: 15px;'><i class='fas fa-<?php echo $gender; ?>'></i><span style='padding-left: 17px;'><?php echo "$user_fname $user_lname";?> <span style="padding-left:5vw">  <?php print_r($dep_date[0]); echo " ----> "; print_r($arr_date[0]);?>    </span>  </span><i class='fas fa-<?php echo $moode; ?> right' style='padding-right: 2vw;'></i><span>
                                                 <div class='divider yellow darken-3'></div>
                                             <div class='card-content'>
                                                 <div>
@@ -219,7 +219,7 @@
                                             </div>
                                             <div class='divider yellow darken-3'> </div>
 <!--________________________________________________________________________________________-->  
-                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 25vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>
+                                            <div style="padding-top: 15px;padding-left: 2vw" >Empty Seats: <?php print_r($seats[0]) ?> <span style="padding-left: 15vw;">Fare per Head: <?php print_r($fare[0]) ?> </span></div>
 <!--________________________________________________________________________________________-->  
 
                                         </div>
