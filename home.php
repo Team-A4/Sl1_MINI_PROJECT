@@ -51,13 +51,13 @@ session_start();
                         <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
-                        <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
+                        <li><a href="signin.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                     <ul class="sidenav grey lighten-2 " id="mobile-menu">
                         <li><a href="post.php"class="grey-text text-darken-4" >Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
-                        <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>
+                        <li><a href="signin.php" class="grey-text text-darken-4">Logout</a></li>
                     </ul>
                         <?php }else {?>
 

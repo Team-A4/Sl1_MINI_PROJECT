@@ -58,12 +58,12 @@
                         <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
-                        <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>                    </ul>
+                        <li><a href="signin.php" class="grey-text text-darken-4">Logout</a></li>                    </ul>
                     <ul class="sidenav grey lighten-2 " id="mobile-menu">
                         <li><a href="post.php"class="grey-text text-darken-4" >Post your trip</a></li>
                         <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
-                        <li><a href="home.php" class="grey-text text-darken-4">Logout</a></li>                    </ul>
+                        <li><a href="signin.php" class="grey-text text-darken-4">Logout</a></li>                    </ul>
                 </div>
             </nav>
         </div>
@@ -204,6 +204,8 @@
                                                if($runn)
                                                {
                                                     echo " <script>alert('Trip posted succesfully!') </script>";
+                                               }else{
+                                                echo " <script>alert('Can not add companion') </script>";
                                                }
                                            }
                                            else

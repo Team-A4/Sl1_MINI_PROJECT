@@ -84,7 +84,7 @@
                     <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i class="material-icons grey-text text-darken-3">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="post.php" class="grey-text text-darken-4">Post your trip</a></li>
-                        <li><a href="searh.php" class="grey-text text-darken-4">Search for traveller</a></li>
+                        <li><a href="search.php" class="grey-text text-darken-4">Search for traveller</a></li>
                         <li><a href="update_profile.php" class="grey-text text-darken-4">Update Profile</a></li>
 
                     </ul>
